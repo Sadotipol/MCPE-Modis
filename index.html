@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="https://www.freeiconspng.com/thumbs/minecraft-png-icon/minecraft-icon-0.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <title>🟩 MCPE Моди</title>
+</head>
+<body>
+  <header>
+    <h1>🟩 MCPE Моди</h1>
+    <p>Завантажуйте моди для MCPE!</p>
+  </header>
+
+  <!-- Filter Panel -->
+  <div class="category-panel">
+    <button class="category-btn active" data-filter="all">Усі</button>
+    <button class="category-btn" data-filter="attak">Зброя</button>
+    <button class="category-btn" data-filter="weapons">Інструменти</button>
+    <button class="category-btn" data-filter="meble">Меблі</button>
+    <button class="category-btn" data-filter="auto">Транспорт</button>
+    <button class="category-btn" data-filter="mob">Мобов</button>
+    <button class="category-btn" data-filter="magic">Магія</button>
+    <button class="category-btn" data-filter="armor">Броню</button>
+    <button class="category-btn" data-filter="eat">Їжу</button>
+    <button class="category-btn" data-filter="block">Блоки</button>
+    <button class="category-btn" data-filter="rud">Руди</button>
+    <button class="category-btn" data-filter="exploration">Дослідження</button>
+    <button class="category-btn" data-filter="new">Нові можливості</button>
+  </div>
+
+  <!-- Mod Cards -->
+  <section class="mod-list">
+    <div class="mod-card" data-category="weapons">
+      <img src="https://mcpehub.org/uploads/posts/2024-09/1726751349_all-in-one-tool-main.jpg" alt="Мод: Все в одном">
+      <h3>Мод: Все в одному</h3>
+      <p>Додає нові потужні інструменти.</p>
+      <a href="MI.html" class="download-btn" download>Завантажити</a>
+    </div>
+
+    <div class="mod-card" data-category="weapons">
+      <img src="https://mcpehub.org/uploads/posts/2025-04/1744126101_obsdian-reworked-main.jpg" alt="Мод MagicCraft">
+      <h3>Мод: Перероблений Обсидіан</h3>
+      <p>Обсідіан стане ідеальним матеріалом для крафту нових інструментів та Броні.!</p>
+      <a href="OBS.html" class="download-btn" download>Завантажити</a>
+    </div>
+
+    <div class="mod-card" data-category="weapons">
+      <img src="https://mcpehub.org/uploads/posts/2022-07/1658224256_warden-armor-echo-tools-and-staff-main.jpg" alt="Мод Exploration Plus">
+      <h3>Мод: Спорядження Вардена та Звуковa палиця</h3>
+      <p>пропонує тобі знайти такі ж здібності, як і у самого Хранителя.</p>
+      <a href="WD.html" class="download-btn" download>Завантажити</a>
+    </div>
+
+    <div class="mod-card" data-category="attak">
+        <img src="https://mcpehub.org/uploads/posts/2025-03/1742300509_simple-arsenal-main.jpg" alt="Мод Exploration Plus">
+        <h3>Мод: Простий арсенал - вогнепальна зброя та вибухівка</h3>
+        <p>одне з найбільших доповнень, що стосуються вогнепальної зброї та вибухівки.</p>
+        <a href="PAVWB.html" class="download-btn" download>Завантажити</a>
+      </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll('.category-btn');
+    const cards = document.querySelectorAll('.mod-card');
+
+    function filterMods(category) {
+      cards.forEach(card => {
+        const match = category === 'all' || card.dataset.category === category;
+        card.style.display = match ? 'block' : 'none';
+      });
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`[data-filter="${category}"]`).classList.add('active');
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.filter;
+        filterMods(category);
+      });
+    });
+
+    // Show all by default
+    filterMods('all');
+  </script>
+
+</body>
+</html>
